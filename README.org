@@ -1,8 +1,5 @@
 #+TITLE: fzf layer
 
-# The maximum height of the logo should be 200 pixels.
-[[img/fzf.png]]
-
 # TOC links should be GitHub style anchors.
 * Table of Contents                                        :TOC_4_gh:noexport:
 - [[#description][Description]]
@@ -10,19 +7,28 @@
 - [[#key-bindings][Key bindings]]
 
 * Description
-This layer does wonderful things:
-  - thing01
+This layer aims to replace helm with fzf for most of the basic use cases:
+  - find-files
+  - find-recentf
+  - Anything else useful from [[https://github.com/junegunn/fzf.vim#commands][fzf.vim]]
 
 * Install
-To use this configuration layer, add it to your =~/.spacemacs=. You will need to
-add =fzf= to the existing =dotspacemacs-configuration-layers= list in this
-file.
+
+To use this layer first clone it into your ~/.emacs.d/private directory:
+
+=git clone git@github.com:ashyisme/fzf-spacemacs-layer.git ~/.emacs.d/private/fzf=
+
+Then enable the layer in your =~/.spacemacs=:
+
+=(setq-default dotspacemacs-configuration-layers '(fzf))=
 
 * Key bindings
 
-| Key Binding | Description    |
-|-------------+----------------|
-| ~SPC x x x~ | Does thing01   |
+| Key Binding | Description                   |
+|-------------+-------------------------------|
+| ~SPC o f f~ | Does spacemacs/fzf-find-files |
+| ~SPC o f r~ | Does spacemacs/fzf-recentf    |
+|             |                               |
 # Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
 # Examples:
 # [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
