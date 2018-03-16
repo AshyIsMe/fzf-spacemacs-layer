@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;
-;; Author: Aaron Ash <aaron@Aarons-MacBook-Air.local>
+;; Author: Aaron Ash <aaron.ash@gmail.com>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -11,26 +11,20 @@
 
 ;;; Commentary:
 
-;; See the Spacemacs documentation and FAQs for instructions on how to implement
-;; a new layer:
-;;
-;;   SPC h SPC layers RET
-;;
-;;
-;; Briefly, each package to be installed or configured by this layer should be
-;; added to `fzf-packages'. Then, for each package PACKAGE:
-;;
-;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `fzf/init-PACKAGE' to load and initialize the package.
+;; The beginnings of an fzf layer to replace helm.
 
-;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `fzf/pre-init-PACKAGE' and/or
-;;   `fzf/post-init-PACKAGE' to customize the package as it is loaded.
+;; TODO:
+;;  - Kill the *fzf* buffer and process on exiting insert mode in the *fzf* buffer
+;;  - Fix C-j C-k etc keybindings (so behaviour is the same as fzf.vm)
+;;  - set-leader-keys properly to override the helm ones
 
 ;;; Code:
 
 (defconst fzf-packages
-  '((fzf :location (recipe :fetcher github :repo "seenaburns/fzf.el"))))
+  ;; '((fzf :location (recipe :fetcher github :repo "seenaburns/fzf.el"))))  ;; Upstream
+
+  '((fzf :location (recipe :fetcher github :repo "AshyIsMe/fzf.el"))))  ;; temporary
+  ;; '((fzf :location local)))
 
 (defun fzf/init-fzf ()
   (use-package fzf
@@ -39,6 +33,7 @@
     :init
     (progn
       (spacemacs/set-leader-keys
-        "of"  'spacemacs/fzf-find-files))))
+        "off"  'spacemacs/fzf-find-files
+        "ofr"  'spacemacs/fzf-recentf))))
 
 ;;; packages.el ends here
