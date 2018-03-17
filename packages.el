@@ -15,6 +15,7 @@
 
 ;; TODO:
 ;;  - Kill the *fzf* buffer and process on exiting insert mode in the *fzf* buffer
+;;    (For now C-c C-c seems to work)
 ;;  - Fix C-j C-k etc keybindings (so behaviour is the same as fzf.vm)
 ;;  - set-leader-keys properly to override the helm ones
 
@@ -34,6 +35,8 @@
     (progn
       (spacemacs/set-leader-keys
         "off"  'spacemacs/fzf-find-files
-        "ofr"  'spacemacs/fzf-recentf))))
+        "ofr"  'spacemacs/fzf-recentf
+        "obb"  'spacemacs/fzf-buffers
+        ))))
 
 ;;; packages.el ends here
